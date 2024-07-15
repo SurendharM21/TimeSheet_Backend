@@ -56,12 +56,12 @@ exports.userSignin = async(req,res,next)=>{
    })
    const mailOptions = {
     from: process.env.GMAILUSERNAME,
-    to: 'msdsuren07@gmail.com',
+    to: 'your_email',
     subject: 'Otp For Signin',
     html:`<p> The Otp for your login is ${otp}</p>`
    }
   
-//    const mail =await transporter.sendMail(mailOptions)
+ const mail =await transporter.sendMail(mailOptions)
    res.json({
     success: true,
     message: "The Otp Is Sent",
@@ -101,7 +101,7 @@ exports.sendMail = async(req,res)=>{
    })
    const mailOptions = {
     from: process.env.GMAILUSERNAME,
-    to: 'msdsuren07@gmail.com',
+    to: 'user_email',
     subject: 'Otp For Signin',
     attachments:[
         {
@@ -111,7 +111,7 @@ exports.sendMail = async(req,res)=>{
     ]
    }
 
-//    const mail = await transporter.sendMail(mailOptions)
+  const mail = await transporter.sendMail(mailOptions)
    res.json({
     success: true,
     message:"Mail sent successfully"
